@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.state {
+  fill: #cbd5e1; /* Начальный цвет из кода */
+  transition: fill 0.2s ease-out, filter 0.2s ease-out;
+  cursor: pointer;
+}
+
+.state.hover {
+  fill: #3b82f6;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+}
+
+.state.selected {
+  fill: #2563eb;
+  filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.4));
+}
