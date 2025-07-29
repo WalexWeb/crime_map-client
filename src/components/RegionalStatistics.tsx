@@ -29,7 +29,7 @@ export const RegionalStatistics: React.FC = () => {
               <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: `${(region.population / 1500000) * 100}%` }} // TODO: Использовать максимальное значение или общее для расчета
+                  animate={{ width: `${(region.population / 1500000) * 100}%` }}
                   className="h-2 bg-blue-500 rounded-full"
                 />
               </div>

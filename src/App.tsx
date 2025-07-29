@@ -1,7 +1,7 @@
-import InteractiveMap from "./components/InteractiveMap";
+import { InteractiveMapPage } from "./pages/InteractiveMap";
 
 function App() {
-  return <InteractiveMap />;
+  return <InteractiveMapPage />;
 }
 
 export default App;
