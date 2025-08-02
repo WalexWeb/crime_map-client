@@ -1,4 +1,3 @@
-// src/components/RegionInfoPanel.tsx
 import { motion } from "framer-motion";
 import type { IRegionData } from "@/types/region.type";
 import { useMapStore } from "@/stores/mapStore"; // 1. Импортируем хранилище
@@ -64,7 +63,7 @@ export const RegionInfoPanel = ({ region, onReset }: Props) => {
             <p>
               {/* Предполагается, что selectedRegionStatus это число от 0 до 3 */}
               Статус:{" "}
-              {/* STATUS_LABELS[selectedRegionStatus] || "Неизвестно" */}
+              STATUS_LABELS[selectedRegionStatus] || "Неизвестно"
               {/* Если selectedRegionStatus это строковый enum, используйте STATUS_LABELS[selectedRegionStatus] */}
               {/* Пример для числового статуса: */}
               {[
@@ -72,7 +71,7 @@ export const RegionInfoPanel = ({ region, onReset }: Props) => {
                 "Готов к введению",
                 "Отсутствуют институты",
                 "Нет информации",
-              ][selectedRegionStatus] || "Неизвестно"}
+              ]}
             </p>
           </div>
         )}

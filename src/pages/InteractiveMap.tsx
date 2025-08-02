@@ -7,8 +7,9 @@ import { REGION_MOCK_DATA } from "@/data/region.data";
 import { RegionInfoPanel } from "@/components/RegionInfoPanel";
 import { RegionPrompt } from "@/components/RegionPrompt";
 import { RegionalStatistics } from "@/components/RegionalStatistics";
-import { useMapStore } from "@/stores/mapStore"; // Импортируем хранилище
+import { useMapStore } from "@/stores/mapStore"; 
 import { CRIME_DATA_MOCK } from "@/data/crime.data";
+import type { ICrimeData } from "@/types/crime.type";
 
 // --- Цвета и метки для тепловой карты (статус готовности) ---
 const HEATMAP_COLORS = ["#ef4444", "#10b981", "#f97316", "#9ca3af"];
@@ -19,18 +20,6 @@ const HEATMAP_LABELS = [
   "Отсутствуют институты государственной власти, обеспечивающие административно-правовой режим при ВП",
   "Нет информации",
 ];
-
-// --- Цвета и данные для режима "Криминогенная обстановка" ---
-// 1. Обновляем интерфейс ICrimeData в types/region.type.ts (или аналогичном файле)
-export interface ICrimeData {
-  rate: number; // Преступлений на 100 тыс. населения
-  violentCrimes: number; // Насильственные преступления
-  propertyCrimes: number; // Имущественные преступления
-  solvedRate: number; // Процент раскрываемости
-  mostCommonCrime: string; // Самый распространённый тип преступлений
-  trend: "рост" | "снижение" | "стабильность"; // Тенденция
-  lastUpdated: string; // Дата обновления данных
-}
 
 const CRIME_LEVEL_COLORS = ["#10b981", "#84cc16", "#f59e0b", "#ef4444"];
 const CRIME_LEVEL_LABELS = ["Низкая", "Средняя", "Высокая", "Очень высокая"];

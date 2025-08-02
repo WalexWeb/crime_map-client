@@ -1,7 +1,5 @@
-// src/hooks/useMapInteractions.ts (Упрощенная версия)
 import { useEffect, type RefObject } from "react";
-// import type { IRegionData } from "@/types/region.type"; // Не используется в упрощенной версии
-import { useMapStore } from "@/stores/mapStore"; // Импортируем для доступа к состоянию режимов
+import { useMapStore } from "@/stores/mapStore";
 
 export const useMapInteractions = (
   mapObjectRef: RefObject<HTMLObjectElement | null>
@@ -26,7 +24,7 @@ export const useMapInteractions = (
         state.style.cursor = "pointer";
         state.style.transition = "all 0.2s ease-out";
         // Начальный цвет устанавливается в основном компоненте
-        // state.style.fill = "#cbd5e1";
+        state.style.fill = "#cbd5e1";
       });
 
       // Обработчики для базовых эффектов наведения
@@ -35,13 +33,13 @@ export const useMapInteractions = (
         const target = event.target as SVGPathElement;
         // Базовый hover эффект, цвет будет меняться в основном компоненте в зависимости от режима
         // Здесь можно добавить, например, тень или scale, если нужно
-        // target.style.filter = "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3))";
+        target.style.filter = "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3))";
       };
 
       const handleMouseLeave = (event: Event) => {
         const target = event.target as SVGPathElement;
         // Сброс базового hover эффекта
-        // target.style.filter = "";
+        target.style.filter = "";
       };
 
       states.forEach((state) => {

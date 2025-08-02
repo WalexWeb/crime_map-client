@@ -1,7 +1,6 @@
-// src/stores/mapStore.ts
 import type { ICrimeData } from "@/types/crime.type";
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware"; // Импортируем persist и createJSONStorage
+import { persist, createJSONStorage } from "zustand/middleware";
 
 type RegionStatus = "no_info" | "ready" | "entered" | "possible";
 
@@ -41,13 +40,12 @@ const PERSISTED_KEYS: (keyof MapState)[] = [
   "isCrimeModeEnabled",
   "heatmapGroups",
   "viewMode",
-  // Не сохраняем selectedRegion* и isLoading, так как они зависят от текущей сессии/загрузки
 ];
 
 export const useMapStore = create<MapState>()(
   // Применяем middleware persist
   persist(
-    (set, get) => ({
+    (set) => ({
       // Состояния по умолчанию
       isHeatmapEnabled: false,
       isCrimeModeEnabled: false,
@@ -108,28 +106,12 @@ export const useMapStore = create<MapState>()(
     }),
     {
       name: "map-storage", // Имя ключа в localStorage
-      // partialize: (state) => Object.fromEntries(
-      //   Object.entries(state).filter(([key]) =>
-      //     PERSISTED_KEYS.includes(key as keyof MapState)
-      //   )
-      // ) as Partial<MapState>,
-      // Более явный способ указать, что сохранять
-      partialize: (state) =>
-        PERSISTED_KEYS.reduce((acc, curr) => {
-          acc[curr] = state[curr];
-          return acc;
-        }, {} as Partial<MapState>) as Partial<MapState>,
-      storage: createJSONStorage(() => localStorage), // Указываем использовать localStorage
-      // onRehydrateStorage: (state) => {
-      //   console.log("hydration starts", state);
-      //   return (state, error) => {
-      //     if (error) {
-      //       console.error("hydration failed", error);
-      //     } else {
-      //       console.log("hydration finished", state);
-      //     }
-      //   };
-      // },
+      partialize: (state) => Object.fromEntries(
+        Object.entries(state).filter(([key]) =>
+          PERSISTED_KEYS.includes(key as keyof MapState)
+        )
+      ) as Partial<MapState>,
+      storage: createJSONStorage(() => localStorage), 
     }
   )
 );
