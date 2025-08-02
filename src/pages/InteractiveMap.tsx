@@ -8,6 +8,7 @@ import { RegionInfoPanel } from "@/components/RegionInfoPanel";
 import { RegionPrompt } from "@/components/RegionPrompt";
 import { RegionalStatistics } from "@/components/RegionalStatistics";
 import { useMapStore } from "@/stores/mapStore"; // Импортируем хранилище
+import { CRIME_DATA_MOCK } from "@/data/crime.data";
 
 // --- Цвета и метки для тепловой карты (статус готовности) ---
 const HEATMAP_COLORS = ["#ef4444", "#10b981", "#f97316", "#9ca3af"];
@@ -30,28 +31,6 @@ export interface ICrimeData {
   trend: "рост" | "снижение" | "стабильность"; // Тенденция
   lastUpdated: string; // Дата обновления данных
 }
-
-// 2. Обновляем моковые данные в data/region.data.ts
-export const CRIME_DATA_MOCK: Record<string, ICrimeData> = {
-  region1: {
-    rate: 450,
-    violentCrimes: 120,
-    propertyCrimes: 330,
-    solvedRate: 65,
-    mostCommonCrime: "Кражи",
-    trend: "рост",
-    lastUpdated: "2023-10-15",
-  },
-  region2: {
-    rate: 320,
-    violentCrimes: 80,
-    propertyCrimes: 240,
-    solvedRate: 75,
-    mostCommonCrime: "Мошенничество",
-    trend: "снижение",
-    lastUpdated: "2023-09-28",
-  },
-};
 
 const CRIME_LEVEL_COLORS = ["#10b981", "#84cc16", "#f59e0b", "#ef4444"];
 const CRIME_LEVEL_LABELS = ["Низкая", "Средняя", "Высокая", "Очень высокая"];
@@ -161,8 +140,6 @@ export const InteractiveMapPage: React.FC = () => {
     isCrimeModeEnabled,
     heatmapGroups,
     selectedRegionId,
-    selectedRegionStatus,
-    selectedRegionCrimeData,
     isLoading,
     viewMode,
     toggleHeatmap,
@@ -173,14 +150,11 @@ export const InteractiveMapPage: React.FC = () => {
     setSelectedRegionCrimeData,
     setIsLoading,
     setViewMode,
-    resetModesAndSelection,
   } = useMapStore();
 
   // Получаем данные выбранного региона для отображения в панели
   const selectedRegionData = selectedRegionId
     ? REGION_MOCK_DATA[selectedRegionId]
-      ? { name: selectedRegionId, ...REGION_MOCK_DATA[selectedRegionId] }
-      : { name: selectedRegionId }
     : null;
 
   // --- Эффект для обновления цветов при изменении режимов или выбора региона ---
@@ -267,7 +241,7 @@ export const InteractiveMapPage: React.FC = () => {
         }
 
         // Анимация выдвижения вперед
-        target.style.transform = "translateZ(5px) scale(1.025)";
+        target.style.transform = "translateZ(7px) scale(1.025)";
         target.style.transition =
           "transform 0.3s ease-out, filter 0.3s ease-out";
         target.style.zIndex = "10";
@@ -645,8 +619,6 @@ export const InteractiveMapPage: React.FC = () => {
                 selectedRegionData ? (
                   <RegionInfoPanel
                     region={selectedRegionData}
-                    status={selectedRegionStatus}
-                    crimeData={selectedRegionCrimeData}
                     onReset={handleResetSelection}
                   />
                 ) : (

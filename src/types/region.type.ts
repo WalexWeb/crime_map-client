@@ -1,12 +1,11 @@
 export interface IRegionData {
-  id: string;
   name: string;
-  capital: string;
-  population: number;
-  area: number;
-  federalDistrict: string;
-  mainIndustry?: string;
+  population?: number; // Опционально, так как используется ?.toLocaleString()
+  capital?: string;
+  area?: number; // Используется в последних версиях RegionInfoPanel
+  federalDistrict?: string;
   description?: string;
+  mainIndustry?: string; // Может присутствовать, хотя не используется в последнем RegionInfoPanel
 }
 
 export interface IRegionMockData {

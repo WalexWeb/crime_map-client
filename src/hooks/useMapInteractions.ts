@@ -1,69 +1,72 @@
+// src/hooks/useMapInteractions.ts (Упрощенная версия)
 import { useEffect, type RefObject } from "react";
-import type { IRegionData } from "@/types/region.type";
+// import type { IRegionData } from "@/types/region.type"; // Не используется в упрощенной версии
+import { useMapStore } from "@/stores/mapStore"; // Импортируем для доступа к состоянию режимов
 
 export const useMapInteractions = (
-  mapObjectRef: RefObject<HTMLObjectElement>,
-  selectedRegion: IRegionData | null,
-  setSelectedRegion: (region: IRegionData | null) => void,
-  setIsLoading: (loading: boolean) => void
+  mapObjectRef: RefObject<HTMLObjectElement | null>
+  // selectedRegion, setSelectedRegion, setIsLoading - больше не передаются
 ) => {
+  // Получаем состояние режимов из хранилища
+  const { isHeatmapEnabled, isCrimeModeEnabled, heatmapGroups } = useMapStore();
+
   useEffect(() => {
     const mapObject = mapObjectRef.current;
     if (!mapObject) return;
 
     const handleLoad = () => {
-      setIsLoading(false);
+      // setIsLoading(false); // Управление загрузкой должно быть в основном компоненте
       const svg = mapObject.contentDocument;
       if (!svg) return;
 
       const states = svg.querySelectorAll<SVGPathElement>(".state");
+
+      // Устанавливаем базовые стили и курсор
       states.forEach((state) => {
         state.style.cursor = "pointer";
         state.style.transition = "all 0.2s ease-out";
-        state.style.fill = "#cbd5e1";
+        // Начальный цвет устанавливается в основном компоненте
+        // state.style.fill = "#cbd5e1";
+      });
 
-        const handleMouseEnter = () => {
-          if (selectedRegion?.name !== state.id) {
-            state.style.fill = "#3b82f6";
-            state.style.filter = "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3))";
-          }
-        };
+      // Обработчики для базовых эффектов наведения
+      // (Основная логика кликов и выбора находится в основном компоненте)
+      const handleMouseEnter = (event: Event) => {
+        const target = event.target as SVGPathElement;
+        // Базовый hover эффект, цвет будет меняться в основном компоненте в зависимости от режима
+        // Здесь можно добавить, например, тень или scale, если нужно
+        // target.style.filter = "drop-shadow(0 0 8px rgba(59, 130, 246, 0.3))";
+      };
 
-        const handleMouseLeave = () => {
-          if (selectedRegion?.name !== state.id) {
-            state.style.fill = "#cbd5e1";
-            state.style.filter = "";
-          }
-        };
+      const handleMouseLeave = (event: Event) => {
+        const target = event.target as SVGPathElement;
+        // Сброс базового hover эффекта
+        // target.style.filter = "";
+      };
 
-        const handleClick = () => {
-          setSelectedRegion({ name: state.id });
-          states.forEach((s) => {
-            s.style.fill = "#cbd5e1";
-            s.style.filter = "";
-          });
-          state.style.fill = "#2563eb";
-          state.style.filter = "drop-shadow(0 0 6px rgba(37, 99, 235, 0.4))";
-        };
-
+      states.forEach((state) => {
         state.addEventListener("mouseenter", handleMouseEnter);
         state.addEventListener("mouseleave", handleMouseLeave);
-        state.addEventListener("click", handleClick);
 
-        // Очистка слушателей при размонтировании или изменении зависимостей
+        // Очистка слушателей
         return () => {
           state.removeEventListener("mouseenter", handleMouseEnter);
           state.removeEventListener("mouseleave", handleMouseLeave);
-          state.removeEventListener("click", handleClick);
+          // Клик-обработчики удаляются в основном компоненте
         };
       });
     };
 
-    mapObject.addEventListener("load", handleLoad);
+    // --- Исправление: Проверяем, загружен ли SVG сразу ---
+    if (mapObject.contentDocument) {
+      handleLoad();
+    } else {
+      mapObject.addEventListener("load", handleLoad);
 
-    // Очистка слушателя события load
-    return () => {
-      mapObject.removeEventListener("load", handleLoad);
-    };
-  }, [selectedRegion, setSelectedRegion, setIsLoading]); // Зависимости
+      return () => {
+        mapObject.removeEventListener("load", handleLoad);
+      };
+    }
+    // --- Конец исправления ---
+  }, [isHeatmapEnabled, isCrimeModeEnabled, heatmapGroups]); // Зависимости от режимов
 };

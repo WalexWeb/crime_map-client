@@ -1,19 +1,29 @@
+// src/components/RegionInfoPanel.tsx
 import { motion } from "framer-motion";
-import type { ICrimeData } from "@/types/crime.type";
 import type { IRegionData } from "@/types/region.type";
+import { useMapStore } from "@/stores/mapStore"; // 1. Импортируем хранилище
 
 interface Props {
   region: IRegionData;
-  crimeData: ICrimeData | null;
+  // 3. Убираем crimeData из пропсов
   onReset: () => void;
 }
 
-export const RegionInfoPanel = ({ region, crimeData, onReset }: Props) => {
-  const getCrimeLevel = (rate: number) => {
-    if (rate < 300) return "Низкий";
-    if (rate < 450) return "Средний";
-    if (rate < 600) return "Высокий";
-    return "Очень высокий";
+export const RegionInfoPanel = ({ region, onReset }: Props) => {
+  // 4. Получаем данные из хранилища
+  const {
+    isHeatmapEnabled,
+    isCrimeModeEnabled,
+    selectedRegionStatus,
+    selectedRegionCrimeData, // Данные преступности из хранилища
+  } = useMapStore();
+
+  // Функция для определения уровня преступности (можно перенести в утилиты)
+  const getCrimeLevelLabel = (rate: number) => {
+    if (rate < 300) return "Низкая";
+    if (rate < 450) return "Средняя";
+    if (rate < 600) return "Высокая";
+    return "Очень высокая";
   };
 
   return (
@@ -21,41 +31,87 @@ export const RegionInfoPanel = ({ region, crimeData, onReset }: Props) => {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
-      className="bg-white rounded-xl shadow-lg p-6 h-full"
+      className="bg-white rounded-xl shadow-lg p-6 h-full flex flex-col"
     >
       <h2 className="text-2xl font-bold mb-4">{region.name}</h2>
 
-      <div className="space-y-3">
+      <div className="space-y-3 flex-grow">
         <p>
           <span className="font-semibold">Столица:</span> {region.capital}
         </p>
         <p>
           <span className="font-semibold">Население:</span>{" "}
-          {region.population.toLocaleString()}
+          {region.population?.toLocaleString() || "Н/Д"}
         </p>
         <p>
           <span className="font-semibold">Площадь:</span>{" "}
-          {region.area.toLocaleString()} км²
+          {region.area ? `${region.area.toLocaleString()} км²` : "Н/Д"}
+        </p>
+        <p>
+          <span className="font-semibold">Федеральный округ:</span>{" "}
+          {region.federalDistrict || "Н/Д"}
+        </p>
+        <p>
+          <span className="font-semibold">Описание:</span>{" "}
+          {region.description || "Нет описания"}
         </p>
 
-        {crimeData && (
+        {/* Отображение данных в зависимости от активного режима */}
+        {/* 5. Отображаем статус, если активен режим тепловой карты */}
+        {isHeatmapEnabled && selectedRegionStatus !== null && (
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <h3 className="font-semibold mb-2">Статус готовности</h3>
+            <p>
+              {/* Предполагается, что selectedRegionStatus это число от 0 до 3 */}
+              Статус:{" "}
+              {/* STATUS_LABELS[selectedRegionStatus] || "Неизвестно" */}
+              {/* Если selectedRegionStatus это строковый enum, используйте STATUS_LABELS[selectedRegionStatus] */}
+              {/* Пример для числового статуса: */}
+              {[
+                "Введено ВП",
+                "Готов к введению",
+                "Отсутствуют институты",
+                "Нет информации",
+              ][selectedRegionStatus] || "Неизвестно"}
+            </p>
+          </div>
+        )}
+
+        {/* 6. Отображаем криминальную статистику, если активен режим криминогенной обстановки */}
+        {isCrimeModeEnabled && selectedRegionCrimeData && (
           <div className="mt-4 pt-4 border-t border-gray-200">
             <h3 className="font-semibold mb-2">Криминальная статистика</h3>
             <p>
               <span className="font-semibold">Уровень:</span>{" "}
-              {getCrimeLevel(crimeData.rate)}
+              {getCrimeLevelLabel(selectedRegionCrimeData.rate)}
             </p>
             <p>
               <span className="font-semibold">Преступлений/100k:</span>{" "}
-              {crimeData.rate}
+              {selectedRegionCrimeData.rate}
+            </p>
+            <p>
+              <span className="font-semibold">Насильственные:</span>{" "}
+              {selectedRegionCrimeData.violentCrimes}
+            </p>
+            <p>
+              <span className="font-semibold">Против собственности:</span>{" "}
+              {selectedRegionCrimeData.propertyCrimes}
+            </p>
+            <p>
+              <span className="font-semibold">Раскрыто:</span>{" "}
+              {selectedRegionCrimeData.solvedRate}%
             </p>
             <p>
               <span className="font-semibold">Частый тип:</span>{" "}
-              {crimeData.mostCommonCrime}
+              {selectedRegionCrimeData.mostCommonCrime || "Н/Д"}
             </p>
             <p>
               <span className="font-semibold">Тенденция:</span>{" "}
-              {crimeData.trend}
+              {selectedRegionCrimeData.trend || "Н/Д"}
+            </p>
+            <p className="text-xs text-gray-500 mt-2">
+              Последнее обновление:{" "}
+              {selectedRegionCrimeData.lastUpdated || "Н/Д"}
             </p>
           </div>
         )}

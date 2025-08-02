@@ -3,7 +3,7 @@ export interface ICrimeData {
   violentCrimes: number;
   propertyCrimes: number;
   solvedRate: number;
-  mostCommonCrime: string;
-  trend: "рост" | "снижение" | "стабильность";
-  lastUpdated: string;
+  mostCommonCrime?: string;
+  trend?: "рост" | "снижение" | "стабильность";
+  lastUpdated?: string;
 }
