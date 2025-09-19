@@ -9,28 +9,33 @@ interface MapState {
   // Режимы отображения
   isHeatmapEnabled: boolean;
   isCrimeModeEnabled: boolean;
+
   // Данные для режимов
   heatmapGroups: Record<string, number>;
+  crimeData: Record<string, ICrimeData>;
+
   // Выбранный регион и его данные
   selectedRegionId: string | null;
   selectedRegionStatus: RegionStatus | null;
   selectedRegionCrimeData: ICrimeData | null;
+
   // Состояние загрузки
   isLoading: boolean;
+
   // Режим отображения (карта/статистика)
   viewMode: "map" | "stats";
 
-  // Действия
+  // --- Действия ---
   toggleHeatmap: () => void;
   toggleCrimeMode: () => void;
   setHeatmapGroups: (groups: Record<string, number>) => void;
+  setCrimeData: (data: Record<string, ICrimeData>) => void;
   setSelectedRegionId: (id: string | null) => void;
   setSelectedRegionStatus: (status: RegionStatus | null) => void;
   setSelectedRegionCrimeData: (data: ICrimeData | null) => void;
   setIsLoading: (loading: boolean) => void;
   setViewMode: (mode: "map" | "stats") => void;
   resetModesAndSelection: () => void;
-  // Действие для гидрации (восстановления) состояния из localStorage
   hydrate: () => void;
 }
 
@@ -43,52 +48,48 @@ const PERSISTED_KEYS: (keyof MapState)[] = [
 ];
 
 export const useMapStore = create<MapState>()(
-  // Применяем middleware persist
   persist(
     (set) => ({
-      // Состояния по умолчанию
+      // --- Состояния по умолчанию ---
       isHeatmapEnabled: false,
       isCrimeModeEnabled: false,
       heatmapGroups: {},
+      crimeData: {},
       selectedRegionId: null,
       selectedRegionStatus: null,
       selectedRegionCrimeData: null,
       isLoading: true,
       viewMode: "map",
 
-      // Действия
+      // --- Действия ---
       toggleHeatmap: () =>
-        set((state) => {
-          const newState = !state.isHeatmapEnabled;
-          return {
-            isHeatmapEnabled: newState,
-            isCrimeModeEnabled: newState ? false : state.isCrimeModeEnabled,
-            // Опционально: сбросить выбор при переключении режима
-            // selectedRegionId: null,
-            // selectedRegionStatus: null,
-            // selectedRegionCrimeData: null,
-          };
-        }),
+        set((state) => ({
+          isHeatmapEnabled: !state.isHeatmapEnabled,
+          isCrimeModeEnabled: state.isHeatmapEnabled
+            ? state.isCrimeModeEnabled
+            : false,
+        })),
+
       toggleCrimeMode: () =>
-        set((state) => {
-          const newState = !state.isCrimeModeEnabled;
-          return {
-            isCrimeModeEnabled: newState,
-            isHeatmapEnabled: newState ? false : state.isHeatmapEnabled,
-            // Опционально: сбросить выбор при переключении режима
-            // selectedRegionId: null,
-            // selectedRegionStatus: null,
-            // selectedRegionCrimeData: null,
-          };
-        }),
+        set((state) => ({
+          isCrimeModeEnabled: !state.isCrimeModeEnabled,
+          isHeatmapEnabled: state.isCrimeModeEnabled
+            ? state.isHeatmapEnabled
+            : false,
+        })),
+
       setHeatmapGroups: (groups) => set({ heatmapGroups: groups }),
+      setCrimeData: (data) => set({ crimeData: data }),
+
       setSelectedRegionId: (id) => set({ selectedRegionId: id }),
       setSelectedRegionStatus: (status) =>
         set({ selectedRegionStatus: status }),
       setSelectedRegionCrimeData: (data) =>
         set({ selectedRegionCrimeData: data }),
+
       setIsLoading: (loading) => set({ isLoading: loading }),
       setViewMode: (mode) => set({ viewMode: mode }),
+
       resetModesAndSelection: () =>
         set({
           isHeatmapEnabled: false,
@@ -97,21 +98,20 @@ export const useMapStore = create<MapState>()(
           selectedRegionStatus: null,
           selectedRegionCrimeData: null,
         }),
-      // Действие для ручной гидрации, если потребуется
+
       hydrate: () => {
-        // get().hydrate(); // persist делает это автоматически, но действие добавлено для полноты API
-        // Можно использовать для дополнительной логики после восстановления
         console.log("MapStore hydrated from localStorage");
       },
     }),
     {
-      name: "map-storage", // Имя ключа в localStorage
-      partialize: (state) => Object.fromEntries(
-        Object.entries(state).filter(([key]) =>
-          PERSISTED_KEYS.includes(key as keyof MapState)
-        )
-      ) as Partial<MapState>,
-      storage: createJSONStorage(() => localStorage), 
+      name: "map-storage",
+      partialize: (state) =>
+        Object.fromEntries(
+          Object.entries(state).filter(([key]) =>
+            PERSISTED_KEYS.includes(key as keyof MapState)
+          )
+        ) as Partial<MapState>,
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );

@@ -2,7 +2,7 @@ import type { IRegionData } from "@/types/region.type";
 
 // Моковые данные о регионах, ключи соответствуют id в SVG
 export const REGION_MOCK_DATA: Record<string, IRegionData> = {
-  BelgorodOblast: {
+  "Белгородская область": {
     name: "Белгородская область",
     population: 1_563_000,
     capital: "Белгород",
@@ -11,7 +11,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Регион на юге Центральной России, известный сельским хозяйством и металлургией.",
     mainIndustry: "Сельское хозяйство, металлургия",
   },
-  NizhnyNovgorodOblast: {
+  "Нижегородская область": {
     name: "Нижегородская область",
     population: 3_525_000,
     capital: "Нижний Новгород",
@@ -20,7 +20,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Крупный промышленный и научный центр на Волге, центр судостроения и химии.",
     mainIndustry: "Машиностроение, химическая промышленность, судостроение",
   },
-  TyumenOblast: {
+  "Тюменская область": {
     name: "Тюменская область",
     population: 3_826_000,
     capital: "Тюмень",
@@ -29,7 +29,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Крупнейший субъект по добыче нефти и газа, один из самых богатых регионов РФ.",
     mainIndustry: "Нефтегазодобыча, топливно-энергетический комплекс",
   },
-  KhantiaMansia: {
+  "Ханты-Мансийский АО": {
     name: "Ханты‑Мансийский автономный округ",
     population: 1_540_000,
     capital: "Ханты‑Мансийск",
@@ -38,7 +38,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Основной центр добычи нефти и газа в рамках Тюменской области.",
     mainIndustry: "Нефтегазовая промышленность",
   },
-  YamaloNenetsAutDistrict: {
+  "Ямало-Ненецкий АО": {
     name: "Ямало‑Ненецкий автономный округ",
     population: 530_000,
     capital: "Салехард",
@@ -46,7 +46,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     description: "Край богатых запасов газа, крупный экспортёр СПГ.",
     mainIndustry: "Газовая промышленность, энергетика",
   },
-  SamaraOblast: {
+  "Самарская область": {
     name: "Самарская область",
     population: 3_240_000,
     capital: "Самара",
@@ -55,7 +55,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Авиа‑ и машиностроительный узел на Волге, ключевой транспортный хаб.",
     mainIndustry: "Авиа- и автомобильное машиностроение, нефтехимия",
   },
-  NovgorodOblast: {
+  "Новгородская  область": {
     name: "Новгородская область",
     population: 580_000,
     capital: "Великий Новгород",
@@ -64,16 +64,16 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Исторический регион с древней столицей Руси, развито деревообрабатывающее и пищевое производство.",
     mainIndustry: "Лесная промышленность, пищевая промышленность, туризм",
   },
-  RepublicOfTuva: {
-  name: "Республика Тыва",
-  population: 340_000,
-  capital: "Кызыл",
-  federalDistrict: "Сибирский",
-  description:
-    "Горный регион с богатой культурой, пограничный с Монголией. Развивается добыча полезных ископаемых.",
-  mainIndustry: "Горнодобывающая промышленность, животноводство, энергетика",
-},
-  PskovOblast: {
+  "Республика Тыва": {
+    name: "Республика Тыва",
+    population: 340_000,
+    capital: "Кызыл",
+    federalDistrict: "Сибирский",
+    description:
+      "Горный регион с богатой культурой, пограничный с Монголией. Развивается добыча полезных ископаемых.",
+    mainIndustry: "Горнодобывающая промышленность, животноводство, энергетика",
+  },
+  "Псковская область": {
     name: "Псковская область",
     population: 590_000,
     capital: "Псков",
@@ -82,7 +82,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Западный приграничный регион, известный историей, развито сельское хозяйство и логистика.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность, логистика",
   },
-  SaintPetersburg: {
+  "г. Санкт-Петербург": {
     name: "Санкт‑Петербург",
     population: 5_600_000,
     capital: "Санкт‑Петербург",
@@ -91,7 +91,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Второй по величине город России, крупный культурный и промышленный центр на Балтике.",
     mainIndustry: "Судостроение, IT‑услуги, туризм, машиностроение",
   },
-  LeningradOblast: {
+  "Ленинградская область": {
     name: "Ленинградская область",
     population: 2_027_000,
     capital: "Гатчина",
@@ -100,7 +100,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Окружает Санкт‑Петербург, развито сельское и лесное хозяйство, производство стройматериалов.",
     mainIndustry: "Лесная промышленность, сельское хозяйство, стройиндустрия",
   },
-  KaliningradOblast: {
+  "Калининградская область": {
     name: "Калининградская область",
     population: 1_030_000,
     capital: "Калининград",
@@ -109,7 +109,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Эксклав России на Балтике, портовая экономика и лёгкая промышленность.",
     mainIndustry: "Транспорт и логистика, пищевая и лёгкая промышленность",
   },
-  ArkhangelskOblast: {
+  "Архангельская область": {
     name: "Архангельская область",
     population: 979_000,
     capital: "Архангельск",
@@ -118,7 +118,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Северный регион с развитыми лесозаготовкой и морскими портами.",
     mainIndustry: "Лесная промышленность, рыболовство, морской транспорт",
   },
-  VologdaOblast: {
+  "Вологодская область": {
     name: "Вологодская область",
     population: 1_143_000,
     capital: "Вологда",
@@ -127,7 +127,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Известна металлургией (череповецкий металлургический комбинат) и молочной продукцией.",
     mainIndustry: "Металлургия, пищевая промышленность, машиностроение",
   },
-  TambovOblast: {
+  "Тамбовская область": {
     name: "Тамбовская область",
     population: 950_000,
     capital: "Тамбов",
@@ -137,7 +137,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Сельское хозяйство, пищевая промышленность, химическая промышленность",
   },
-  KostromaOblast: {
+  "Костромская область": {
     name: "Костромская область",
     population: 620_000,
     capital: "Кострома",
@@ -146,7 +146,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Северо-восточный регион ЦФО, известен льняной промышленностью и деревообработкой.",
     mainIndustry: "Легкая промышленность, деревообработка, машиностроение",
   },
-  RepublicOfKarelia: {
+  "Республика Карелия": {
     name: "Республика Карелия",
     population: 533_000,
     capital: "Петрозаводск",
@@ -155,7 +155,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Граничит с Финляндией, развиты лесная и горнорудная отрасли, туристическая инфраструктура.",
     mainIndustry: "Лесная и горнодобывающая промышленность, туризм",
   },
-  KomiRepublic: {
+  "Республика Коми": {
     name: "Республика Коми",
     population: 738_000,
     capital: "Сыктывкар",
@@ -164,7 +164,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Северный сырьевой регион, развит нефтегазовый комплекс и лесная промышленность.",
     mainIndustry: "Нефтегазодобыча, лесная промышленность, энергетика",
   },
-  MurmanskOblast: {
+  "Мурманская область": {
     name: "Мурманская область",
     population: 668_000,
     capital: "Мурманск",
@@ -174,7 +174,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Рыболовство, морской транспорт, горнодобывающая промышленность",
   },
-  NenetsAutDistrict: {
+  "Ненецкий АО": {
     name: "Ненецкий автономный округ",
     population: 41_000,
     capital: "Нарьян‑Мар",
@@ -183,7 +183,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Край с низкой плотностью населения, развит газодобывающий сектор и традиционное оленеводство.",
     mainIndustry: "Газовая промышленность, традиционное сельское хозяйство",
   },
-  SaratovOblast: {
+  "Саратовская область": {
     name: "Саратовская область",
     population: 2_670_000,
     capital: "Саратов",
@@ -192,7 +192,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Северная окраина Волго‑Каспийской аграрной зоны, развита пищевая промышленность.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность, энергетика",
   },
-  BryanskOblast: {
+  "Брянская область": {
     name: "Брянская область",
     population: 1_252_000,
     capital: "Брянск",
@@ -201,7 +201,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Граничит с Украиной и Беларусью, развито лесное и машиностроительное хозяйство.",
     mainIndustry: "Машиностроение, лесная промышленность",
   },
-  VladimirOblast: {
+  "Владимирская область": {
     name: "Владимирская область",
     population: 1_438_000,
     capital: "Владимир",
@@ -210,7 +210,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Исторический центр России с множеством памятников архитектуры.",
     mainIndustry: "Машиностроение, легкая промышленность",
   },
-  VoronezhOblast: {
+  "Воронежская область": {
     name: "Воронежская область",
     population: 2_333_000,
     capital: "Воронеж",
@@ -219,7 +219,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Крупный промышленный и научный центр на юге Центральной России.",
     mainIndustry: "Машиностроение, химическая промышленность",
   },
-  IvanovoOblast: {
+  "Ивановская область": {
     name: "Ивановская область",
     population: 1_043_000,
     capital: "Иваново",
@@ -228,7 +228,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Известна текстильной промышленностью, отсюда название 'город невест'.",
     mainIndustry: "Текстильная промышленность",
   },
-  KalugaOblast: {
+  "Калужская область": {
     name: "Калужская область",
     population: 1_041_000,
     capital: "Калуга",
@@ -237,7 +237,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Находится недалеко от Москвы, развита наукоемкая и оборонная промышленность.",
     mainIndustry: "Космическая промышленность, приборостроение",
   },
-  KurskOblast: {
+  "Курская область": {
     name: "Курская область",
     population: 1_146_000,
     capital: "Курск",
@@ -245,7 +245,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     description: "Богата железной рудой, важный сельскохозяйственный регион.",
     mainIndustry: "Горнодобывающая промышленность, сельское хозяйство",
   },
-  LipetskOblast: {
+  "Липецкая область": {
     name: "Липецкая область",
     population: 1_141_000,
     capital: "Липецк",
@@ -254,7 +254,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Центр черноземной полосы, развито машиностроение и металлургия.",
     mainIndustry: "Металлургия, машиностроение",
   },
-  OrelOblast: {
+  "Орловская область": {
     name: "Орловская область",
     population: 778_000,
     capital: "Орел",
@@ -263,7 +263,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Историческая родина адмирала Нахимова, развито сельское хозяйство.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность",
   },
-  RyazanOblast: {
+  "Рязанская область": {
     name: "Рязанская область",
     population: 1_122_000,
     capital: "Рязань",
@@ -272,7 +272,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Расположена на Оке, важный транспортный узел и промышленный регион.",
     mainIndustry: "Нефтепереработка, машиностроение",
   },
-  Moscow: {
+  "г. Москва": {
     name: "Москва",
     population: 13_100_000,
     capital: "Москва",
@@ -281,7 +281,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Столица России, крупнейший политический, экономический и культурный центр страны.",
     mainIndustry: "Финансовый сектор, ИТ, строительство, транспорт",
   },
-  MoscowOblast: {
+  "Московская область": {
     name: "Московская область",
     population: 8_500_000,
     capital: "Красногорск",
@@ -290,7 +290,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Окружает столицу, активно развиваются производство, логистика и пригородная инфраструктура.",
     mainIndustry: "Пищевая промышленность, логистика, машиностроение",
   },
-  SmolenskOblast: {
+  "Смоленская область": {
     name: "Смоленская область",
     population: 888_000,
     capital: "Смоленск",
@@ -299,7 +299,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Пограничный регион с Беларусью, важный транспортный и историко-культурный центр.",
     mainIndustry: "Машиностроение, лёгкая и пищевая промышленность",
   },
-  TulaOblast: {
+  "Тульская область": {
     name: "Тульская область",
     population: 1_432_000,
     capital: "Тула",
@@ -308,7 +308,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Исторический центр оружейной промышленности России, активно развивается химия и металлургия.",
     mainIndustry: "Оборонная промышленность, металлургия, химия",
   },
-  TverOblast: {
+  "Тверская область": {
     name: "Тверская область",
     population: 1_185_000,
     capital: "Тверь",
@@ -318,7 +318,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Лесная промышленность, целлюлозно-бумажная промышленность, туризм",
   },
-  YaroslavlOblast: {
+  "Ярославская область": {
     name: "Ярославская область",
     population: 1_222_000,
     capital: "Ярославль",
@@ -327,7 +327,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Часть Золотого кольца России, сочетает культурное наследие с промышленным производством.",
     mainIndustry: "Машиностроение, нефтехимия, туризм",
   },
-  RepublicOfTatarstan: {
+  "Республика Татарстан": {
     name: "Республика Татарстан",
     population: 3_890_000,
     capital: "Казань",
@@ -336,7 +336,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Один из наиболее экономически развитых регионов России с мощной нефтехимической и машиностроительной промышленностью.",
     mainIndustry: "Нефтехимия, автомобилестроение, IT",
   },
-  RepublicOfBashkortostan: {
+  "Республика Башкортостан": {
     name: "Республика Башкортостан",
     population: 4_000_000,
     capital: "Уфа",
@@ -345,7 +345,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Регион с крупными запасами природных ресурсов, развитой нефтепереработкой и химической промышленностью.",
     mainIndustry: "Нефтепереработка, химическая промышленность, металлургия",
   },
-  UdmurtRepublic: {
+  "Удмуртская Республика": {
     name: "Удмуртская Республика",
     population: 1_460_000,
     capital: "Ижевск",
@@ -354,7 +354,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Регион с развитой оборонной промышленностью и машиностроением, центр производства стрелкового оружия.",
     mainIndustry: "Оборонная промышленность, машиностроение",
   },
-  ChuvashRepublic: {
+  "Чувашская Республика": {
     name: "Чувашская Республика",
     population: 1_180_000,
     capital: "Чебоксары",
@@ -363,7 +363,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Известна электротехнической промышленностью, а также аграрным сектором.",
     mainIndustry: "Электротехника, сельское хозяйство, пищевая промышленность",
   },
-  MariElRepublic: {
+  "Республика Марий Эл": {
     name: "Республика Марий Эл",
     population: 660_000,
     capital: "Йошкар-Ола",
@@ -373,7 +373,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Лесная промышленность, деревообработка, пищевая промышленность",
   },
-  RepublicOfMordovia: {
+  "Республика Мордовия": {
     name: "Республика Мордовия",
     population: 740_000,
     capital: "Саранск",
@@ -382,7 +382,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Регион с развитым электротехническим производством и сельским хозяйством.",
     mainIndustry: "Приборостроение, сельское хозяйство",
   },
-  PermKrai: {
+  "Пермский край": {
     name: "Пермский край",
     population: 2_490_000,
     capital: "Пермь",
@@ -391,7 +391,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Промышленный регион на западных склонах Урала, центр химии, машиностроения и энергетики.",
     mainIndustry: "Химическая промышленность, энергетика, машиностроение",
   },
-  KirovOblast: {
+  "Кировская область": {
     name: "Кировская область",
     population: 1_170_000,
     capital: "Киров",
@@ -400,7 +400,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Лесной и аграрный регион, известен деревообработкой и фармацевтическим производством.",
     mainIndustry: "Лесная промышленность, пищевая, фармацевтика",
   },
-  PenzaOblast: {
+  "Пензенская область": {
     name: "Пензенская область",
     population: 1_260_000,
     capital: "Пенза",
@@ -409,7 +409,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Регион с сильной аграрной базой и развивающимся машиностроением.",
     mainIndustry: "Сельское хозяйство, машиностроение",
   },
-  UlyanovskOblast: {
+  "Ульяновская область": {
     name: "Ульяновская область",
     population: 1_250_000,
     capital: "Ульяновск",
@@ -418,7 +418,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Родина Ленина, регион с сильным транспортным машиностроением и авиапромом.",
     mainIndustry: "Машиностроение, авиастроение",
   },
-  OrenburgOblast: {
+  "Оренбургская область": {
     name: "Оренбургская область",
     population: 1_850_000,
     capital: "Оренбург",
@@ -426,7 +426,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     description: "Пограничный регион, важный центр газодобычи и металлургии.",
     mainIndustry: "Газовая промышленность, металлургия, пищевая промышленность",
   },
-  SverdlovskOblast: {
+  "Свердловская область": {
     name: "Свердловская область",
     population: 4_280_000,
     capital: "Екатеринбург",
@@ -435,7 +435,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Крупнейший промышленный регион Урала, важный центр машиностроения и металлургии.",
     mainIndustry: "Черная и цветная металлургия, машиностроение",
   },
-  ChelyabinskOblast: {
+  "Челябинская область": {
     name: "Челябинская область",
     population: 3_460_000,
     capital: "Челябинск",
@@ -444,7 +444,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Металлургическое сердце Урала с развитой оборонной и тяжелой промышленностью.",
     mainIndustry: "Металлургия, машиностроение, оборонная промышленность",
   },
-  KurganOblast: {
+  "Курганская область": {
     name: "Курганская область",
     population: 790_000,
     capital: "Курган",
@@ -455,7 +455,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Пищевая промышленность, сельское хозяйство, медицинское оборудование",
   },
 
-  NovosibirskOblast: {
+  "Новосибирская область": {
     name: "Новосибирская область",
     population: 2_770_000,
     capital: "Новосибирск",
@@ -464,7 +464,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Крупнейший город Сибири, научный, транспортный и промышленный центр.",
     mainIndustry: "Машиностроение, энергетика, наука и образование",
   },
-  OmskOblast: {
+  "Омская область": {
     name: "Омская область",
     population: 1_940_000,
     capital: "Омск",
@@ -473,7 +473,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Крупный промышленный центр на юге Западной Сибири, развито машиностроение и нефтехимия.",
     mainIndustry: "Нефтехимия, машиностроение, пищевая промышленность",
   },
-  TomskOblast: {
+  "Томская область": {
     name: "Томская область",
     population: 1_040_000,
     capital: "Томск",
@@ -483,7 +483,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Образование и наука, нефтегазовая промышленность, деревообработка",
   },
-  KemerovoOblast: {
+  "Кемеровская область-Кузбасс": {
     name: "Кемеровская область",
     population: 2_550_000,
     capital: "Кемерово",
@@ -492,7 +492,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Также известна как Кузбасс — ключевой регион угольной промышленности России.",
     mainIndustry: "Угольная промышленность, металлургия, химия",
   },
-  AltaiKrai: {
+  "Алтайский край": {
     name: "Алтайский край",
     population: 2_250_000,
     capital: "Барнаул",
@@ -501,7 +501,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Аграрно-промышленный регион на юге Сибири с активным пищевым производством.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность, машиностроение",
   },
-  AltaiRepublic: {
+  "Республика Алтай": {
     name: "Республика Алтай",
     population: 210_000,
     capital: "Горно-Алтайск",
@@ -510,7 +510,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Горный регион с живописной природой, экономика основана на туризме и сельском хозяйстве.",
     mainIndustry: "Туризм, животноводство, пищевая промышленность",
   },
-  KrasnoyarskKrai: {
+  "Красноярский край": {
     name: "Красноярский край",
     population: 2_800_000,
     capital: "Красноярск",
@@ -519,7 +519,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Один из крупнейших регионов России по территории, богат природными ресурсами и промышленностью.",
     mainIndustry: "Цветная металлургия, энергетика, деревообработка",
   },
-  IrkutskOblast: {
+  "Иркутская область": {
     name: "Иркутская область",
     population: 2_300_000,
     capital: "Иркутск",
@@ -529,7 +529,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Энергетика, химическая промышленность, лесная промышленность",
   },
-  RepublicOfBuryatia: {
+  "Республика Бурятия": {
     name: "Республика Бурятия",
     population: 970_000,
     capital: "Улан-Удэ",
@@ -539,7 +539,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Горнодобывающая промышленность, туризм, пищевая промышленность",
   },
-  RepublicOfKhakassia: {
+  "Республика Хакасия": {
     name: "Республика Хакасия",
     population: 500_000,
     capital: "Абакан",
@@ -548,7 +548,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry: "Энергетика, угольная промышленность, цветная металлургия",
   },
 
-  PrimorskyKrai: {
+  "Приморский край": {
     name: "Приморский край",
     population: 1_820_000,
     capital: "Владивосток",
@@ -557,7 +557,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Ключевой регион на Тихоокеанском побережье, с развитым портом, логистикой и рыбной промышленностью.",
     mainIndustry: "Морской транспорт, рыболовство, машиностроение",
   },
-  KhabarovskKrai: {
+  "Хабаровский край": {
     name: "Хабаровский край",
     population: 1_260_000,
     capital: "Хабаровск",
@@ -566,7 +566,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Крупный промышленный и транспортный центр на Дальнем Востоке, развито машиностроение и лесная промышленность.",
     mainIndustry: "Судостроение, деревообработка, транспорт",
   },
-  AmurOblast: {
+  "Амурская область": {
     name: "Амурская область",
     population: 760_000,
     capital: "Благовещенск",
@@ -575,7 +575,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Расположена на границе с Китаем, активно развивается аграрный сектор и добыча золота.",
     mainIndustry: "Сельское хозяйство, горнодобыча, энергетика",
   },
-  SakhalinOblast: {
+  "Сахалинская область": {
     name: "Сахалинская область",
     population: 460_000,
     capital: "Южно-Сахалинск",
@@ -584,7 +584,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Островной регион с мощной нефтегазовой отраслью и рыбной промышленностью.",
     mainIndustry: "Нефтегазовая промышленность, рыболовство",
   },
-  JewishAutonomousOblast: {
+  "Еврейская АО": {
     name: "Еврейская автономная область",
     population: 150_000,
     capital: "Биробиджан",
@@ -593,7 +593,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Малонаселённый регион с развитым сельским хозяйством и лесной промышленностью.",
     mainIndustry: "Сельское хозяйство, лесная промышленность",
   },
-  RepublicOfSakha: {
+  "Республика Саха (Якутия)": {
     name: "Республика Саха (Якутия)",
     population: 950_000,
     capital: "Якутск",
@@ -602,7 +602,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Один из крупнейших регионов России по территории, важный центр алмазодобычи.",
     mainIndustry: "Алмазодобыча, угледобыча, газовая промышленность",
   },
-  KamchatkaKrai: {
+  "Камчатский край": {
     name: "Камчатский край",
     population: 290_000,
     capital: "Петропавловск-Камчатский",
@@ -611,7 +611,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Вулканический полуостров с развитым рыбным промыслом и туризмом.",
     mainIndustry: "Рыболовство, энергетика, туризм",
   },
-  MagadanOblast: {
+  "Магаданская область": {
     name: "Магаданская область",
     population: 130_000,
     capital: "Магадан",
@@ -620,7 +620,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Северо-восточный регион с суровым климатом, важный центр золотодобычи.",
     mainIndustry: "Золотодобыча, энергетика, логистика",
   },
-  ChukotkaAutonomousOkrug: {
+  "Чукотский АО": {
     name: "Чукотский автономный округ",
     population: 50_000,
     capital: "Анадырь",
@@ -629,7 +629,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Наиболее удалённый регион России, экономика основана на добыче ресурсов и северных субсидиях.",
     mainIndustry: "Золотодобыча, оленеводство, энергетика",
   },
-  ZabaykalskyKrai: {
+  "Забайкальский край": {
     name: "Забайкальский край",
     population: 1_000_000,
     capital: "Чита",
@@ -638,7 +638,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Пограничный регион с Монголией и Китаем, развито сельское хозяйство и горнодобывающая отрасль.",
     mainIndustry: "Горнодобыча, транспорт, энергетика",
   },
-  RostovOblast: {
+  "Ростовская область": {
     name: "Ростовская область",
     population: 4_140_000,
     capital: "Ростов-на-Дону",
@@ -647,7 +647,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Один из крупнейших аграрных регионов России, также развито машиностроение и логистика.",
     mainIndustry: "Сельское хозяйство, машиностроение, транспорт",
   },
-  KrasnodarKrai: {
+  "Краснодарский край": {
     name: "Краснодарский край",
     population: 5_870_000,
     capital: "Краснодар",
@@ -656,7 +656,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Курортный регион с выходом к Чёрному морю, сильная аграрная и строительная отрасли.",
     mainIndustry: "Сельское хозяйство, туризм, строительство",
   },
-  VolgogradOblast: {
+  "Волгоградская область": {
     name: "Волгоградская область",
     population: 2_470_000,
     capital: "Волгоград",
@@ -665,7 +665,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Регион на Волге с промышленной историей, развито машиностроение и нефтепереработка.",
     mainIndustry: "Нефтепереработка, химическая промышленность, энергетика",
   },
-  AstrakhanOblast: {
+  "Астраханская область": {
     name: "Астраханская область",
     population: 950_000,
     capital: "Астрахань",
@@ -674,7 +674,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Южный регион на берегу Каспийского моря, важный центр рыболовства и газа.",
     mainIndustry: "Газовая промышленность, рыболовство, судостроение",
   },
-  RepublicOfKalmykia: {
+  "Республика Калмыкия": {
     name: "Республика Калмыкия",
     population: 265_000,
     capital: "Элиста",
@@ -683,7 +683,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Степной регион с буддийским наследием, развито животноводство и энергетика.",
     mainIndustry: "Животноводство, энергетика, сельское хозяйство",
   },
-  RepublicOfAdygea: {
+  "Республика Адыгея": {
     name: "Республика Адыгея",
     population: 470_000,
     capital: "Майкоп",
@@ -693,7 +693,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry:
       "Сельское хозяйство, пищевая промышленность, лесная промышленность",
   },
-  RepublicOfCrimea: {
+  "Республика Крым": {
     name: "Республика Крым",
     population: 1_900_000,
     capital: "Симферополь",
@@ -702,7 +702,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Полуостров в Чёрном море, важный курортный и туристический регион с аграрной базой.",
     mainIndustry: "Туризм, виноделие, сельское хозяйство",
   },
-  Sevastopol: {
+  "г. Севастополь": {
     name: "Севастополь",
     population: 510_000,
     capital: "Севастополь",
@@ -712,7 +712,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry: "Туризм, морской транспорт, оборонная промышленность",
   },
 
-  RepublicOfDagestan: {
+  "Республика Дагестан": {
     name: "Республика Дагестан",
     population: 3_200_000,
     capital: "Махачкала",
@@ -721,7 +721,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Многонациональный регион на побережье Каспийского моря с развивающимся аграрным и строительным секторами.",
     mainIndustry: "Сельское хозяйство, строительство, энергетика",
   },
-  RepublicOfChechnya: {
+  "Чеченская Республика": {
     name: "Чеченская Республика",
     population: 1_540_000,
     capital: "Грозный",
@@ -730,7 +730,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Регион с активным восстановлением экономики, упор на строительство и сельское хозяйство.",
     mainIndustry: "Строительство, сельское хозяйство, пищевая промышленность",
   },
-  RepublicOfIngushetia: {
+  "Республика Ингушетия": {
     name: "Республика Ингушетия",
     population: 520_000,
     capital: "Магас",
@@ -739,7 +739,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Один из самых малонаселённых и молодых регионов, развивается агропромышленный сектор.",
     mainIndustry: "Сельское хозяйство, переработка, строительство",
   },
-  RepublicOfNorthOssetia: {
+  "Республика Сев. Осетия-Алания": {
     name: "Республика Северная Осетия",
     population: 690_000,
     capital: "Владикавказ",
@@ -748,7 +748,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Горный регион с развитой энергетикой, металлургией и аграрной отраслью.",
     mainIndustry: "Металлургия, гидроэнергетика, пищевая промышленность",
   },
-  KabardinoBalkarRepublic: {
+  "Кабардино-Балкарская Респ.": {
     name: "Кабардино-Балкарская Республика",
     population: 870_000,
     capital: "Нальчик",
@@ -757,7 +757,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Кавказский регион с туристическим потенциалом, виноградарством и энергетикой.",
     mainIndustry: "Туризм, сельское хозяйство, энергетика",
   },
-  KarachayCherkessRepublic: {
+  "Карачаево-Черкесская Респ.": {
     name: "Карачаево-Черкесская Республика",
     population: 470_000,
     capital: "Черкесск",
@@ -766,7 +766,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
       "Горный регион с акцентом на животноводство и возрождение туризма.",
     mainIndustry: "Животноводство, туризм, пищевая промышленность",
   },
-  StavropolKrai: {
+  "Ставропольский край": {
     name: "Ставропольский край",
     population: 2_790_000,
     capital: "Ставрополь",
@@ -776,5 +776,3 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     mainIndustry: "Сельское хозяйство, химическая промышленность, энергетика",
   },
 };
-
-// КОСЯКИ UstOrdaBuryatia AgaBuryatia (ZabaykalskyKrai) RepublicOfCrimea, Sevastopol (добавить)

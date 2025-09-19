@@ -1,9 +1,9 @@
 export interface ICrimeData {
-  rate: number;
-  violentCrimes: number;
-  propertyCrimes: number;
-  solvedRate: number;
-  mostCommonCrime?: string;
-  trend?: "рост" | "снижение" | "стабильность";
-  lastUpdated?: string;
+    id: number,
+    region: string,
+    extremism: number,
+    osob: number,
+    terrorism: number,
+    weapon: number,
+    total: number,
 }

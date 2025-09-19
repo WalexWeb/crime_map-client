@@ -7,14 +7,14 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [tailwindcss(), react()],
   preview: {
-    port: 8081,
+    port: 3200,
     strictPort: true,
   },
   server: {
-    port: 8081,
+    port: 3200,
     strictPort: true,
     host: true,
-    origin: "http://0.0.0.0:8081",
+    origin: "http://0.0.0.0:3200",
   },
   resolve: {
     alias: {
