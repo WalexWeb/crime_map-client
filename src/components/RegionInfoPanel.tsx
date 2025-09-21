@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import type { IRegionData } from "@/types/region.type";
 import { useMapStore } from "@/stores/mapStore";
+import React from "react";
 
 interface Props {
   region: IRegionData;
   onReset: () => void;
 }
 
-export const RegionInfoPanel = ({ region, onReset }: Props) => {
+export const RegionInfoPanel = React.memo(({ region, onReset }: Props) => {
   const {
     isHeatmapEnabled,
     isCrimeModeEnabled,
@@ -112,4 +113,4 @@ export const RegionInfoPanel = ({ region, onReset }: Props) => {
       </button>
     </motion.div>
   );
-};
+});
