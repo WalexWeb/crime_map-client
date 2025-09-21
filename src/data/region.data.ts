@@ -2,11 +2,43 @@ import type { IRegionData } from "@/types/region.type";
 
 // Моковые данные о регионах, ключи соответствуют id в SVG
 export const REGION_MOCK_DATA: Record<string, IRegionData> = {
+  "Центральный ФО": {
+    name: "Центральный федеральный округ",
+    population: 40_298_690,
+  },
+  "Северо-Западный ФО": {
+    name: "Северо-Западный федеральный округ",
+    population: 13_876_648,
+  },
+  "Южный ФО": {
+    name: "Южный федеральный округ",
+    population: 16_589_069,
+  },
+  "Приволжский ФО": {
+    name: "Приволжский федеральный округ",
+    population: 28_408_677,
+  },
+  "Уральский ФО": {
+    name: "Уральский федеральный округ",
+    population: 12_282_737,
+  },
+  "Сибирский ФО": {
+    name: "Сибирский федеральный округ",
+    population: 16_492_894,
+  },
+  "Дальневосточный ФО": {
+    name: "Дальневосточный федеральный округ",
+    population: 8_164_652,
+  },
+  "Северо-Кавказский ФО": {
+    name: "Северо-Кавказский федеральный округ",
+    population: 10_310_935,
+  },
   "Белгородская область": {
     name: "Белгородская область",
     population: 1_563_000,
     capital: "Белгород",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Регион на юге Центральной России, известный сельским хозяйством и металлургией.",
     mainIndustry: "Сельское хозяйство, металлургия",
@@ -15,7 +47,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Нижегородская область",
     population: 3_525_000,
     capital: "Нижний Новгород",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Крупный промышленный и научный центр на Волге, центр судостроения и химии.",
     mainIndustry: "Машиностроение, химическая промышленность, судостроение",
@@ -24,7 +56,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Тюменская область",
     population: 3_826_000,
     capital: "Тюмень",
-    federalDistrict: "Уральский",
+    federalDistrict: "Уральский ФО",
     description:
       "Крупнейший субъект по добыче нефти и газа, один из самых богатых регионов РФ.",
     mainIndustry: "Нефтегазодобыча, топливно-энергетический комплекс",
@@ -33,7 +65,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ханты‑Мансийский автономный округ",
     population: 1_540_000,
     capital: "Ханты‑Мансийск",
-    federalDistrict: "Уральский",
+    federalDistrict: "Уральский ФО",
     description:
       "Основной центр добычи нефти и газа в рамках Тюменской области.",
     mainIndustry: "Нефтегазовая промышленность",
@@ -42,7 +74,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ямало‑Ненецкий автономный округ",
     population: 530_000,
     capital: "Салехард",
-    federalDistrict: "Уральский",
+    federalDistrict: "Уральский ФО",
     description: "Край богатых запасов газа, крупный экспортёр СПГ.",
     mainIndustry: "Газовая промышленность, энергетика",
   },
@@ -50,7 +82,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Самарская область",
     population: 3_240_000,
     capital: "Самара",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Авиа‑ и машиностроительный узел на Волге, ключевой транспортный хаб.",
     mainIndustry: "Авиа- и автомобильное машиностроение, нефтехимия",
@@ -59,7 +91,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Новгородская область",
     population: 580_000,
     capital: "Великий Новгород",
-    federalDistrict: "Северо-Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Исторический регион с древней столицей Руси, развито деревообрабатывающее и пищевое производство.",
     mainIndustry: "Лесная промышленность, пищевая промышленность, туризм",
@@ -68,7 +100,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Тыва",
     population: 340_000,
     capital: "Кызыл",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Горный регион с богатой культурой, пограничный с Монголией. Развивается добыча полезных ископаемых.",
     mainIndustry: "Горнодобывающая промышленность, животноводство, энергетика",
@@ -77,7 +109,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Псковская область",
     population: 590_000,
     capital: "Псков",
-    federalDistrict: "Северо-Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Западный приграничный регион, известный историей, развито сельское хозяйство и логистика.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность, логистика",
@@ -86,7 +118,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Санкт‑Петербург",
     population: 5_600_000,
     capital: "Санкт‑Петербург",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Второй по величине город России, крупный культурный и промышленный центр на Балтике.",
     mainIndustry: "Судостроение, IT‑услуги, туризм, машиностроение",
@@ -95,7 +127,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ленинградская область",
     population: 2_027_000,
     capital: "Гатчина",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Окружает Санкт‑Петербург, развито сельское и лесное хозяйство, производство стройматериалов.",
     mainIndustry: "Лесная промышленность, сельское хозяйство, стройиндустрия",
@@ -104,7 +136,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Калининградская область",
     population: 1_030_000,
     capital: "Калининград",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Эксклав России на Балтике, портовая экономика и лёгкая промышленность.",
     mainIndustry: "Транспорт и логистика, пищевая и лёгкая промышленность",
@@ -113,7 +145,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Архангельская область",
     population: 979_000,
     capital: "Архангельск",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Северный регион с развитыми лесозаготовкой и морскими портами.",
     mainIndustry: "Лесная промышленность, рыболовство, морской транспорт",
@@ -122,7 +154,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Вологодская область",
     population: 1_143_000,
     capital: "Вологда",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Известна металлургией (череповецкий металлургический комбинат) и молочной продукцией.",
     mainIndustry: "Металлургия, пищевая промышленность, машиностроение",
@@ -131,7 +163,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Тамбовская область",
     population: 950_000,
     capital: "Тамбов",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Аграрный регион с развитым растениеводством и переработкой, часть черноземного центра России.",
     mainIndustry:
@@ -141,7 +173,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Костромская область",
     population: 620_000,
     capital: "Кострома",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Северо-восточный регион ЦФО, известен льняной промышленностью и деревообработкой.",
     mainIndustry: "Легкая промышленность, деревообработка, машиностроение",
@@ -150,7 +182,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Карелия",
     population: 533_000,
     capital: "Петрозаводск",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Граничит с Финляндией, развиты лесная и горнорудная отрасли, туристическая инфраструктура.",
     mainIndustry: "Лесная и горнодобывающая промышленность, туризм",
@@ -159,7 +191,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Коми",
     population: 738_000,
     capital: "Сыктывкар",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО ФО",
     description:
       "Северный сырьевой регион, развит нефтегазовый комплекс и лесная промышленность.",
     mainIndustry: "Нефтегазодобыча, лесная промышленность, энергетика",
@@ -168,7 +200,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Мурманская область",
     population: 668_000,
     capital: "Мурманск",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО ФО",
     description:
       "Арктический портовый регион, важен в рыболовстве и добыче полезных ископаемых.",
     mainIndustry:
@@ -178,7 +210,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ненецкий автономный округ",
     population: 41_000,
     capital: "Нарьян‑Мар",
-    federalDistrict: "Северо‑Западный",
+    federalDistrict: "Северо-Западный ФО",
     description:
       "Край с низкой плотностью населения, развит газодобывающий сектор и традиционное оленеводство.",
     mainIndustry: "Газовая промышленность, традиционное сельское хозяйство",
@@ -187,7 +219,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Саратовская область",
     population: 2_670_000,
     capital: "Саратов",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Северная окраина Волго‑Каспийской аграрной зоны, развита пищевая промышленность.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность, энергетика",
@@ -196,7 +228,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Брянская область",
     population: 1_252_000,
     capital: "Брянск",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Граничит с Украиной и Беларусью, развито лесное и машиностроительное хозяйство.",
     mainIndustry: "Машиностроение, лесная промышленность",
@@ -205,7 +237,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Владимирская область",
     population: 1_438_000,
     capital: "Владимир",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Исторический центр России с множеством памятников архитектуры.",
     mainIndustry: "Машиностроение, легкая промышленность",
@@ -214,7 +246,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Воронежская область",
     population: 2_333_000,
     capital: "Воронеж",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Крупный промышленный и научный центр на юге Центральной России.",
     mainIndustry: "Машиностроение, химическая промышленность",
@@ -223,7 +255,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ивановская область",
     population: 1_043_000,
     capital: "Иваново",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Известна текстильной промышленностью, отсюда название 'город невест'.",
     mainIndustry: "Текстильная промышленность",
@@ -232,7 +264,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Калужская область",
     population: 1_041_000,
     capital: "Калуга",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Находится недалеко от Москвы, развита наукоемкая и оборонная промышленность.",
     mainIndustry: "Космическая промышленность, приборостроение",
@@ -241,7 +273,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Курская область",
     population: 1_146_000,
     capital: "Курск",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description: "Богата железной рудой, важный сельскохозяйственный регион.",
     mainIndustry: "Горнодобывающая промышленность, сельское хозяйство",
   },
@@ -249,7 +281,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Липецкая область",
     population: 1_141_000,
     capital: "Липецк",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Центр черноземной полосы, развито машиностроение и металлургия.",
     mainIndustry: "Металлургия, машиностроение",
@@ -258,7 +290,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Орловская область",
     population: 778_000,
     capital: "Орел",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Историческая родина адмирала Нахимова, развито сельское хозяйство.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность",
@@ -267,7 +299,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Рязанская область",
     population: 1_122_000,
     capital: "Рязань",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Расположена на Оке, важный транспортный узел и промышленный регион.",
     mainIndustry: "Нефтепереработка, машиностроение",
@@ -276,7 +308,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Москва",
     population: 13_100_000,
     capital: "Москва",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Столица России, крупнейший политический, экономический и культурный центр страны.",
     mainIndustry: "Финансовый сектор, ИТ, строительство, транспорт",
@@ -285,7 +317,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Московская область",
     population: 8_500_000,
     capital: "Красногорск",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Окружает столицу, активно развиваются производство, логистика и пригородная инфраструктура.",
     mainIndustry: "Пищевая промышленность, логистика, машиностроение",
@@ -294,7 +326,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Смоленская область",
     population: 888_000,
     capital: "Смоленск",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Пограничный регион с Беларусью, важный транспортный и историко-культурный центр.",
     mainIndustry: "Машиностроение, лёгкая и пищевая промышленность",
@@ -303,7 +335,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Тульская область",
     population: 1_432_000,
     capital: "Тула",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Исторический центр оружейной промышленности России, активно развивается химия и металлургия.",
     mainIndustry: "Оборонная промышленность, металлургия, химия",
@@ -312,7 +344,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Тверская область",
     population: 1_185_000,
     capital: "Тверь",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Регион между Москвой и Санкт-Петербургом с развитым транспортом, лесным хозяйством и туризмом.",
     mainIndustry:
@@ -322,7 +354,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ярославская область",
     population: 1_222_000,
     capital: "Ярославль",
-    federalDistrict: "Центральный",
+    federalDistrict: "Центральный ФО",
     description:
       "Часть Золотого кольца России, сочетает культурное наследие с промышленным производством.",
     mainIndustry: "Машиностроение, нефтехимия, туризм",
@@ -331,7 +363,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Татарстан",
     population: 3_890_000,
     capital: "Казань",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Один из наиболее экономически развитых регионов России с мощной нефтехимической и машиностроительной промышленностью.",
     mainIndustry: "Нефтехимия, автомобилестроение, IT",
@@ -340,7 +372,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Башкортостан",
     population: 4_000_000,
     capital: "Уфа",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Регион с крупными запасами природных ресурсов, развитой нефтепереработкой и химической промышленностью.",
     mainIndustry: "Нефтепереработка, химическая промышленность, металлургия",
@@ -349,7 +381,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Удмуртская Республика",
     population: 1_460_000,
     capital: "Ижевск",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Регион с развитой оборонной промышленностью и машиностроением, центр производства стрелкового оружия.",
     mainIndustry: "Оборонная промышленность, машиностроение",
@@ -358,7 +390,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Чувашская Республика",
     population: 1_180_000,
     capital: "Чебоксары",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Известна электротехнической промышленностью, а также аграрным сектором.",
     mainIndustry: "Электротехника, сельское хозяйство, пищевая промышленность",
@@ -367,7 +399,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Марий Эл",
     population: 660_000,
     capital: "Йошкар-Ола",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Небольшой аграрно-промышленный регион с развитой деревообработкой.",
     mainIndustry:
@@ -377,7 +409,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Мордовия",
     population: 740_000,
     capital: "Саранск",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Регион с развитым электротехническим производством и сельским хозяйством.",
     mainIndustry: "Приборостроение, сельское хозяйство",
@@ -386,7 +418,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Пермский край",
     population: 2_490_000,
     capital: "Пермь",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Промышленный регион на западных склонах Урала, центр химии, машиностроения и энергетики.",
     mainIndustry: "Химическая промышленность, энергетика, машиностроение",
@@ -395,7 +427,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Кировская область",
     population: 1_170_000,
     capital: "Киров",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Лесной и аграрный регион, известен деревообработкой и фармацевтическим производством.",
     mainIndustry: "Лесная промышленность, пищевая, фармацевтика",
@@ -404,7 +436,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Пензенская область",
     population: 1_260_000,
     capital: "Пенза",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Регион с сильной аграрной базой и развивающимся машиностроением.",
     mainIndustry: "Сельское хозяйство, машиностроение",
@@ -413,7 +445,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ульяновская область",
     population: 1_250_000,
     capital: "Ульяновск",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description:
       "Родина Ленина, регион с сильным транспортным машиностроением и авиапромом.",
     mainIndustry: "Машиностроение, авиастроение",
@@ -422,7 +454,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Оренбургская область",
     population: 1_850_000,
     capital: "Оренбург",
-    federalDistrict: "Приволжский",
+    federalDistrict: "Приволжский ФО",
     description: "Пограничный регион, важный центр газодобычи и металлургии.",
     mainIndustry: "Газовая промышленность, металлургия, пищевая промышленность",
   },
@@ -430,7 +462,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Свердловская область",
     population: 4_280_000,
     capital: "Екатеринбург",
-    federalDistrict: "Уральский",
+    federalDistrict: "Уральский ФО",
     description:
       "Крупнейший промышленный регион Урала, важный центр машиностроения и металлургии.",
     mainIndustry: "Черная и цветная металлургия, машиностроение",
@@ -439,7 +471,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Челябинская область",
     population: 3_460_000,
     capital: "Челябинск",
-    federalDistrict: "Уральский",
+    federalDistrict: "Уральский ФО",
     description:
       "Металлургическое сердце Урала с развитой оборонной и тяжелой промышленностью.",
     mainIndustry: "Металлургия, машиностроение, оборонная промышленность",
@@ -448,7 +480,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Курганская область",
     population: 790_000,
     capital: "Курган",
-    federalDistrict: "Уральский",
+    federalDistrict: "Уральский ФО",
     description:
       "Аграрно-промышленный регион с развивающейся пищевой и медицинской промышленностью.",
     mainIndustry:
@@ -459,7 +491,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Новосибирская область",
     population: 2_770_000,
     capital: "Новосибирск",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Крупнейший город Сибири, научный, транспортный и промышленный центр.",
     mainIndustry: "Машиностроение, энергетика, наука и образование",
@@ -468,7 +500,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Омская область",
     population: 1_940_000,
     capital: "Омск",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Крупный промышленный центр на юге Западной Сибири, развито машиностроение и нефтехимия.",
     mainIndustry: "Нефтехимия, машиностроение, пищевая промышленность",
@@ -477,7 +509,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Томская область",
     population: 1_040_000,
     capital: "Томск",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Научный центр с университетским кластером и развитой нефтегазовой отраслью.",
     mainIndustry:
@@ -487,7 +519,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Кемеровская область",
     population: 2_550_000,
     capital: "Кемерово",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Также известна как Кузбасс — ключевой регион угольной промышленности России.",
     mainIndustry: "Угольная промышленность, металлургия, химия",
@@ -496,7 +528,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Алтайский край",
     population: 2_250_000,
     capital: "Барнаул",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Аграрно-промышленный регион на юге Сибири с активным пищевым производством.",
     mainIndustry: "Сельское хозяйство, пищевая промышленность, машиностроение",
@@ -505,7 +537,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Алтай",
     population: 210_000,
     capital: "Горно-Алтайск",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Горный регион с живописной природой, экономика основана на туризме и сельском хозяйстве.",
     mainIndustry: "Туризм, животноводство, пищевая промышленность",
@@ -514,7 +546,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Красноярский край",
     population: 2_800_000,
     capital: "Красноярск",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Один из крупнейших регионов России по территории, богат природными ресурсами и промышленностью.",
     mainIndustry: "Цветная металлургия, энергетика, деревообработка",
@@ -523,7 +555,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Иркутская область",
     population: 2_300_000,
     capital: "Иркутск",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description:
       "Регион у озера Байкал, важный центр энергетики, химии и деревообработки.",
     mainIndustry:
@@ -533,7 +565,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Бурятия",
     population: 970_000,
     capital: "Улан-Удэ",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Расположена рядом с Байкалом, развита горнодобыча, транспорт и туризм.",
     mainIndustry:
@@ -543,7 +575,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Хакасия",
     population: 500_000,
     capital: "Абакан",
-    federalDistrict: "Сибирский",
+    federalDistrict: "Сибирский ФО",
     description: "Регион в южной Сибири с развитой энергетикой и угледобычей.",
     mainIndustry: "Энергетика, угольная промышленность, цветная металлургия",
   },
@@ -552,7 +584,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Приморский край",
     population: 1_820_000,
     capital: "Владивосток",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Ключевой регион на Тихоокеанском побережье, с развитым портом, логистикой и рыбной промышленностью.",
     mainIndustry: "Морской транспорт, рыболовство, машиностроение",
@@ -561,7 +593,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Хабаровский край",
     population: 1_260_000,
     capital: "Хабаровск",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Крупный промышленный и транспортный центр на Дальнем Востоке, развито машиностроение и лесная промышленность.",
     mainIndustry: "Судостроение, деревообработка, транспорт",
@@ -570,7 +602,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Амурская область",
     population: 760_000,
     capital: "Благовещенск",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Расположена на границе с Китаем, активно развивается аграрный сектор и добыча золота.",
     mainIndustry: "Сельское хозяйство, горнодобыча, энергетика",
@@ -579,7 +611,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Сахалинская область",
     population: 460_000,
     capital: "Южно-Сахалинск",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Островной регион с мощной нефтегазовой отраслью и рыбной промышленностью.",
     mainIndustry: "Нефтегазовая промышленность, рыболовство",
@@ -588,7 +620,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Еврейская автономная область",
     population: 150_000,
     capital: "Биробиджан",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Малонаселённый регион с развитым сельским хозяйством и лесной промышленностью.",
     mainIndustry: "Сельское хозяйство, лесная промышленность",
@@ -597,7 +629,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Саха (Якутия)",
     population: 950_000,
     capital: "Якутск",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Один из крупнейших регионов России по территории, важный центр алмазодобычи.",
     mainIndustry: "Алмазодобыча, угледобыча, газовая промышленность",
@@ -606,7 +638,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Камчатский край",
     population: 290_000,
     capital: "Петропавловск-Камчатский",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Вулканический полуостров с развитым рыбным промыслом и туризмом.",
     mainIndustry: "Рыболовство, энергетика, туризм",
@@ -615,7 +647,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Магаданская область",
     population: 130_000,
     capital: "Магадан",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Северо-восточный регион с суровым климатом, важный центр золотодобычи.",
     mainIndustry: "Золотодобыча, энергетика, логистика",
@@ -624,7 +656,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Чукотский автономный округ",
     population: 50_000,
     capital: "Анадырь",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Наиболее удалённый регион России, экономика основана на добыче ресурсов и северных субсидиях.",
     mainIndustry: "Золотодобыча, оленеводство, энергетика",
@@ -633,7 +665,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Забайкальский край",
     population: 1_000_000,
     capital: "Чита",
-    federalDistrict: "Дальневосточный",
+    federalDistrict: "Дальневосточный ФО",
     description:
       "Пограничный регион с Монголией и Китаем, развито сельское хозяйство и горнодобывающая отрасль.",
     mainIndustry: "Горнодобыча, транспорт, энергетика",
@@ -642,7 +674,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ростовская область",
     population: 4_140_000,
     capital: "Ростов-на-Дону",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
       "Один из крупнейших аграрных регионов России, также развито машиностроение и логистика.",
     mainIndustry: "Сельское хозяйство, машиностроение, транспорт",
@@ -651,7 +683,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Краснодарский край",
     population: 5_870_000,
     capital: "Краснодар",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
       "Курортный регион с выходом к Чёрному морю, сильная аграрная и строительная отрасли.",
     mainIndustry: "Сельское хозяйство, туризм, строительство",
@@ -660,7 +692,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Волгоградская область",
     population: 2_470_000,
     capital: "Волгоград",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
       "Регион на Волге с промышленной историей, развито машиностроение и нефтепереработка.",
     mainIndustry: "Нефтепереработка, химическая промышленность, энергетика",
@@ -669,16 +701,16 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Астраханская область",
     population: 950_000,
     capital: "Астрахань",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
-      "Южный регион на берегу Каспийского моря, важный центр рыболовства и газа.",
+      "Южный ФО регион на берегу Каспийского моря, важный центр рыболовства и газа.",
     mainIndustry: "Газовая промышленность, рыболовство, судостроение",
   },
   "Республика Калмыкия": {
     name: "Республика Калмыкия",
     population: 265_000,
     capital: "Элиста",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
       "Степной регион с буддийским наследием, развито животноводство и энергетика.",
     mainIndustry: "Животноводство, энергетика, сельское хозяйство",
@@ -687,7 +719,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Адыгея",
     population: 470_000,
     capital: "Майкоп",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
       "Небольшой аграрный регион в предгорьях Кавказа, активно развивает пищевую промышленность.",
     mainIndustry:
@@ -697,7 +729,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Крым",
     population: 1_900_000,
     capital: "Симферополь",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
       "Полуостров в Чёрном море, важный курортный и туристический регион с аграрной базой.",
     mainIndustry: "Туризм, виноделие, сельское хозяйство",
@@ -706,7 +738,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Севастополь",
     population: 510_000,
     capital: "Севастополь",
-    federalDistrict: "Южный",
+    federalDistrict: "Южный ФО",
     description:
       "Город федерального значения, морская база и курорт на Чёрном море.",
     mainIndustry: "Туризм, морской транспорт, оборонная промышленность",
@@ -716,7 +748,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Дагестан",
     population: 3_200_000,
     capital: "Махачкала",
-    federalDistrict: "Северо-Кавказский",
+    federalDistrict: "Северо-Кавказский ФО",
     description:
       "Многонациональный регион на побережье Каспийского моря с развивающимся аграрным и строительным секторами.",
     mainIndustry: "Сельское хозяйство, строительство, энергетика",
@@ -725,7 +757,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Чеченская Республика",
     population: 1_540_000,
     capital: "Грозный",
-    federalDistrict: "Северо-Кавказский",
+    federalDistrict: "Северо-Кавказский ФО",
     description:
       "Регион с активным восстановлением экономики, упор на строительство и сельское хозяйство.",
     mainIndustry: "Строительство, сельское хозяйство, пищевая промышленность",
@@ -734,7 +766,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Ингушетия",
     population: 520_000,
     capital: "Магас",
-    federalDistrict: "Северо-Кавказский",
+    federalDistrict: "Северо-Кавказский ФО",
     description:
       "Один из самых малонаселённых и молодых регионов, развивается агропромышленный сектор.",
     mainIndustry: "Сельское хозяйство, переработка, строительство",
@@ -743,7 +775,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Республика Северная Осетия",
     population: 690_000,
     capital: "Владикавказ",
-    federalDistrict: "Северо-Кавказский",
+    federalDistrict: "Северо-Кавказский ФО",
     description:
       "Горный регион с развитой энергетикой, металлургией и аграрной отраслью.",
     mainIndustry: "Металлургия, гидроэнергетика, пищевая промышленность",
@@ -752,7 +784,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Кабардино-Балкарская Республика",
     population: 870_000,
     capital: "Нальчик",
-    federalDistrict: "Северо-Кавказский",
+    federalDistrict: "Северо-Кавказский ФО",
     description:
       "Кавказский регион с туристическим потенциалом, виноградарством и энергетикой.",
     mainIndustry: "Туризм, сельское хозяйство, энергетика",
@@ -761,7 +793,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Карачаево-Черкесская Республика",
     population: 470_000,
     capital: "Черкесск",
-    federalDistrict: "Северо-Кавказский",
+    federalDistrict: "Северо-Кавказский ФО",
     description:
       "Горный регион с акцентом на животноводство и возрождение туризма.",
     mainIndustry: "Животноводство, туризм, пищевая промышленность",
@@ -770,7 +802,7 @@ export const REGION_MOCK_DATA: Record<string, IRegionData> = {
     name: "Ставропольский край",
     population: 2_790_000,
     capital: "Ставрополь",
-    federalDistrict: "Северо-Кавказский",
+    federalDistrict: "Северо-Кавказский ФО",
     description:
       "Крупнейший по населению регион округа, развито сельское хозяйство, химия и энергетика.",
     mainIndustry: "Сельское хозяйство, химическая промышленность, энергетика",

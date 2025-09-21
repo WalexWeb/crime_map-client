@@ -24,11 +24,20 @@ const HEATMAP_LABELS = [
 const CRIME_LEVEL_COLORS = ["#10b981", "#84cc16", "#f59e0b", "#ef4444"];
 const CRIME_LEVEL_LABELS = ["Низкая", "Средняя", "Высокая", "Очень высокая"];
 
+// --- Функции для расчёта цвета преступности ---
 const getCrimeLevel = (crimeRate: number): number => {
   if (crimeRate < 5000) return 0;
   if (crimeRate < 7000) return 1;
   if (crimeRate < 10000) return 2;
   return 3;
+};
+
+const getCrimeLevelColor = (crimes: number, population: number): string => {
+  if (!population) return "#d1d5db"; // gray-300
+  const crimesPer100k = (crimes / population) * 100000;
+  const level = getCrimeLevel(crimesPer100k);
+  const colorMap = ["#22c55e", "#eab308", "#f97316", "#ef4444"];
+  return colorMap[level] || "#d1d5db";
 };
 
 type RegionStatus = "no_info" | "ready" | "entered" | "possible";
@@ -37,16 +46,6 @@ const STATUS_MAP: Record<number, RegionStatus> = {
   1: "ready",
   2: "entered",
   3: "possible",
-};
-
-const assignRandomHeatmapGroups = (
-  regionIds: string[]
-): Record<string, number> => {
-  const groups: Record<string, number> = {};
-  regionIds.forEach((id) => {
-    groups[id] = Math.floor(Math.random() * HEATMAP_COLORS.length);
-  });
-  return groups;
 };
 
 // --- Вспомогательные функции для работы с SVG ---
@@ -70,13 +69,15 @@ const applyCrimeModeColors = (
 ) => {
   states.forEach((state) => {
     const crimeData = crimeDataMap[state.id];
-    if (crimeData) {
-      const population = REGION_MOCK_DATA[state.id]?.population || 100000;
-      const rate = Math.round((crimeData.total / population) * 100000);
-      const level = getCrimeLevel(rate);
-      state.style.fill = CRIME_LEVEL_COLORS[level];
+    const region = REGION_MOCK_DATA[state.id];
+    if (crimeData && region) {
+      const fillColor = getCrimeLevelColor(
+        crimeData.total,
+        region.population || 1
+      );
+      state.style.fill = fillColor;
     } else {
-      state.style.fill = "#cbd5e1";
+      state.style.fill = "#cbd5e1"; // серый если данных нет
     }
     updateRegionTooltipCrime(state, crimeDataMap);
   });
@@ -138,9 +139,7 @@ export const InteractiveMapPage: React.FC = () => {
     selectedRegionId,
     isLoading,
     viewMode,
-    toggleHeatmap,
     toggleCrimeMode,
-    setHeatmapGroups,
     setSelectedRegionId,
     setSelectedRegionStatus,
     setSelectedRegionCrimeData,
@@ -157,17 +156,13 @@ export const InteractiveMapPage: React.FC = () => {
     {}
   );
 
-  // --- Загрузка данных о преступности ---
   useEffect(() => {
     const fetchCrimeData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get<ICrimeData[]>(
-          `${API_URL}/crimes/all`
-        );
+        const response = await axios.get<ICrimeData[]>(`${API_URL}/crimes/all`);
         const data = response.data;
 
-        // Преобразуем массив в объект по полю region
         const map = data.reduce(
           (acc, item) => {
             acc[item.region] = item;
@@ -204,9 +199,7 @@ export const InteractiveMapPage: React.FC = () => {
       } else if (isCrimeModeEnabled && crimeDataMap[state.id] !== undefined) {
         const crimeData = crimeDataMap[state.id];
         const population = REGION_MOCK_DATA[state.id]?.population || 100000;
-        const rate = Math.round((crimeData.total / population) * 100000);
-        const level = getCrimeLevel(rate);
-        fillColor = CRIME_LEVEL_COLORS[level];
+        fillColor = getCrimeLevelColor(crimeData.total, population);
       }
       state.style.fill = fillColor;
     });
@@ -277,11 +270,12 @@ export const InteractiveMapPage: React.FC = () => {
           setSelectedRegionCrimeData(null);
         }
 
-        // Анимация выделения
-        target.style.transform = "translateZ(7px) scale(1.025)";
+        // ✅ Анимация выделения: сдвиг вверх-влево + масштаб + z-index
+        target.style.transform = "translate(-8px, -8px) scale(1.03)";
         target.style.transition =
           "transform 0.3s ease-out, filter 0.3s ease-out";
-        target.style.zIndex = "10";
+        target.style.zIndex = "1000";
+        target.style.filter = "drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3))";
 
         states.forEach((s) => {
           if (s.id !== regionId) {
@@ -292,18 +286,18 @@ export const InteractiveMapPage: React.FC = () => {
               const data = crimeDataMap[s.id];
               if (data) {
                 const pop = REGION_MOCK_DATA[s.id]?.population || 100000;
-                const r = Math.round((data.total / pop) * 100000);
-                const lvl = getCrimeLevel(r);
-                resetColor = CRIME_LEVEL_COLORS[lvl];
+                resetColor = getCrimeLevelColor(data.total, pop);
               }
             }
             s.style.fill = resetColor;
             s.style.filter = "";
-            s.style.transform = "";
-            s.style.zIndex = "";
+            s.style.transform = "translate(0, 0) scale(1)"; // ✅ Сброс анимации
+            s.style.zIndex = "1";
           } else {
             s.style.fill = "#2563eb";
-            s.style.filter = "drop-shadow(0 0 6px rgba(37, 99, 235, 0.4))";
+            s.style.filter = "drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3))";
+            s.style.transform = "translate(-8px, -8px) scale(1.03)"; // ✅ Сохраняем анимацию для выбранного
+            s.style.zIndex = "1000";
           }
         });
       };
@@ -334,8 +328,9 @@ export const InteractiveMapPage: React.FC = () => {
         const regionId = target.id;
         if (selectedRegionId === regionId) {
           target.style.fill = "#2563eb";
-          target.style.filter = "drop-shadow(0 0 6px rgba(37, 99, 235, 0.4))";
-          target.style.transform = "translateZ(3px) scale(1.03)";
+          target.style.filter = "drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3))";
+          target.style.transform = "translate(-8px, -8px) scale(1.03)"; // ✅ Всегда держим выделенный регион "поднятым"
+          target.style.zIndex = "1000";
         } else {
           let restoreColor = "#cbd5e1";
           if (isHeatmapEnabled && heatmapGroups[regionId] !== undefined) {
@@ -344,14 +339,13 @@ export const InteractiveMapPage: React.FC = () => {
             const data = crimeDataMap[regionId];
             if (data) {
               const pop = REGION_MOCK_DATA[regionId]?.population || 100000;
-              const r = Math.round((data.total / pop) * 100000);
-              const lvl = getCrimeLevel(r);
-              restoreColor = CRIME_LEVEL_COLORS[lvl];
+              restoreColor = getCrimeLevelColor(data.total, pop); // ✅ новая логика
             }
           }
           target.style.fill = restoreColor;
           target.style.filter = "";
-          target.style.transform = "";
+          target.style.transform = "translate(0, 0) scale(1)";
+          target.style.zIndex = "1";
         }
       };
 
@@ -403,26 +397,6 @@ export const InteractiveMapPage: React.FC = () => {
     crimeDataMap,
   ]);
 
-  // --- Обработчики кнопок ---
-  const handleToggleHeatmap = () => {
-    const newState = !isHeatmapEnabled;
-    toggleHeatmap();
-    if (newState && mapObjectRef.current?.contentDocument) {
-      const svg = mapObjectRef.current.contentDocument;
-      const states = svg.querySelectorAll<SVGPathElement>(".state");
-      const ids = Array.from(states)
-        .map((s) => s.id)
-        .filter(Boolean);
-      const newGroups = assignRandomHeatmapGroups(ids);
-      setHeatmapGroups(newGroups);
-      applyHeatmapColors(states, newGroups);
-    } else if (!newState && mapObjectRef.current?.contentDocument) {
-      const svg = mapObjectRef.current.contentDocument;
-      const states = svg.querySelectorAll<SVGPathElement>(".state");
-      resetRegionColors(states);
-    }
-  };
-
   const handleToggleCrimeMode = () => {
     const newState = !isCrimeModeEnabled;
     toggleCrimeMode();
@@ -436,17 +410,17 @@ export const InteractiveMapPage: React.FC = () => {
       resetRegionColors(states);
     }
   };
-
   const handleResetSelection = () => {
     if (mapObjectRef.current?.contentDocument) {
       const svg = mapObjectRef.current.contentDocument;
       const states = svg.querySelectorAll<SVGPathElement>(".state");
 
       states.forEach((state) => {
-        state.style.transform = "";
+        state.style.transform = "translate(0, 0) scale(1)";
         state.style.transition =
           "transform 0.3s ease-out, filter 0.3s ease-out";
-        state.style.zIndex = "";
+        state.style.zIndex = "1";
+        state.style.filter = "";
 
         let restoreColor = "#cbd5e1";
         if (isHeatmapEnabled && heatmapGroups[state.id] !== undefined) {
@@ -455,13 +429,10 @@ export const InteractiveMapPage: React.FC = () => {
           const data = crimeDataMap[state.id];
           if (data) {
             const pop = REGION_MOCK_DATA[state.id]?.population || 100000;
-            const r = Math.round((data.total / pop) * 100000);
-            const lvl = getCrimeLevel(r);
-            restoreColor = CRIME_LEVEL_COLORS[lvl];
+            restoreColor = getCrimeLevelColor(data.total, pop); // ✅ новая логика
           }
         }
         state.style.fill = restoreColor;
-        state.style.filter = "";
       });
     }
 
@@ -520,30 +491,6 @@ export const InteractiveMapPage: React.FC = () => {
               Статистика
             </button>
           </div>
-
-          <button
-            onClick={handleToggleHeatmap}
-            disabled={isCrimeModeEnabled}
-            className={`px-4 py-2 md:px-5 md:py-2 rounded-lg font-medium transition-all text-sm md:text-base flex items-center gap-2 shadow-sm border ${
-              isHeatmapEnabled
-                ? "bg-amber-500 hover:bg-amber-600 text-white border-amber-600"
-                : "bg-white text-gray-700 hover:bg-gray-100 border-gray-300"
-            } ${isCrimeModeEnabled ? "opacity-50 cursor-not-allowed" : ""}`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Статус регионов
-          </button>
 
           <button
             onClick={handleToggleCrimeMode}
@@ -645,7 +592,7 @@ export const InteractiveMapPage: React.FC = () => {
             className={`${
               viewMode === "map"
                 ? "lg:w-[350px] xl:w-1/4 flex-shrink-0"
-                : "w-full"
+                : "w-full overflow-y-auto"
             }`}
           >
             <AnimatePresence mode="wait">

@@ -16,9 +16,9 @@ export const RegionInfoPanel = ({ region, onReset }: Props) => {
   } = useMapStore();
 
   const getCrimeLevelLabel = (rate: number) => {
-    if (rate < 300) return "Низкая";
-    if (rate < 450) return "Средняя";
-    if (rate < 600) return "Высокая";
+    if (rate < 5000) return "Низкая";
+    if (rate < 7000) return "Средняя";
+    if (rate < 10000) return "Высокая";
     return "Очень высокая";
   };
 
@@ -38,15 +38,12 @@ export const RegionInfoPanel = ({ region, onReset }: Props) => {
 
       <div className="space-y-3 flex-grow">
         <p>
-          <span className="font-semibold">Столица:</span> {region.capital}
+          <span className="font-semibold">Административный центр:</span>{" "}
+          {region.capital}
         </p>
         <p>
           <span className="font-semibold">Население:</span>{" "}
           {region.population?.toLocaleString() || "Н/Д"}
-        </p>
-        <p>
-          <span className="font-semibold">Площадь:</span>{" "}
-          {region.area ? `${region.area.toLocaleString()} км²` : "Н/Д"}
         </p>
         <p>
           <span className="font-semibold">Федеральный округ:</span>{" "}
